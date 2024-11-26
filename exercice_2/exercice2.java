@@ -1,21 +1,32 @@
 public class GestionnaireNotes {
 
-    // Affiche note et moyennes
+    /**
+     * procédure qui affiche les notes puis la moyenne
+     *
+     * @param nomEtudiant
+     * @param notes
+     */
     public void afficherNotesEtMoyenne(String nomEtudiant, int[] notes) {
-        // Affichage des notes
         System.out.println("Notes de " + nomEtudiant + ":");
         for (int note : notes) {
             System.out.println("- " + note);
         }
 
-        // Calcul de la somme des notes
+        double moyenne = getMoyen(notes);
+        System.out.println("Moyenne : " + moyenne);
+    }
+
+    /**
+     * fonction qui calcule la moyenne
+     *
+     * @param notes
+     * @return double
+     */
+    private double getMoyen(int[] notes) {
         int somme = 0;
         for (int note : notes) {
             somme += note;
         }
-
-        // Affichage de la moyenne
-        double moyenne = (double) somme / notes.length;
-        System.out.println("Moyenne : " + moyenne);
+        return (double) somme / notes.length;
     }
 }
